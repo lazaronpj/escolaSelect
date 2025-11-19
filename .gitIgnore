@@ -1,0 +1,55 @@
+# Resultados de compilação e empacotamento
+# Ignora todos os arquivos .class em qualquer lugar
+*.class
+
+# Pastas de saída comuns para Maven, Gradle e IDEs
+target/
+build/
+bin/
+out/
+
+# Arquivos de log
+*.log
+log/
+logs/
+
+# Arquivos temporários e de backup
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
+
+# Configurações do Maven
+.mvn/
+pom.xml.tag
+pom.xml.next
+pom.xml.bak
+pom.xml.versions
+pom.xml.releaseBackup
+
+# Configurações do Gradle
+.gradle/
+# Para ignorar o wrapper do gradle no caso de ser gerado pelo sistema operacional, mas geralmente é versionado
+# gradle-wrapper.jar
+
+# Configurações de IDEs (Eclipse, IntelliJ, VS Code, NetBeans)
+.idea/             # IntelliJ
+.project           # Eclipse
+.classpath         # Eclipse
+.settings/         # Eclipse
+.vscode/           # VS Code
+nbproject/         # NetBeans
+*.iml              # IntelliJ module files
+
+# Arquivos específicos do sistema operacional
+.DS_Store          # macOS
+Thumbs.db          # Windows
+
+# Variáveis de ambiente e segredos locais (muito importante!)
+.env
+secret.properties
+config.local.properties
+
+# Diretório de recursos de teste
+# src/test/resources/
