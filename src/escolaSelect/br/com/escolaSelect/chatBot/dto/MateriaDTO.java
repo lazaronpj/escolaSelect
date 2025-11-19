@@ -2,11 +2,16 @@ package escolaSelect.br.com.escolaSelect.chatBot.dto;
 
 public class MateriaDTO {
 
+	private int id;
 	private String nome;
 	private double notaProva;
 	private double notaTrabalho;
 	private double notaPonto;
 	private int faltas;
+
+	public Integer getId() {
+		return id;
+	}
 
 	public String getNome() {
 		return nome;

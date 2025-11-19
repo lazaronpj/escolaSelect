@@ -2,10 +2,15 @@ package escolaSelect.br.com.escolaSelect.chatBot.dto;
 
 public class PessoaDTO {
 
+	private int id;
 	private String nome;
 	private String email;
 	private String senha;
 	private String tipo;
+
+	public Integer getId() {
+		return id;
+	}
 
 	public String getNome() {
 		return nome;
