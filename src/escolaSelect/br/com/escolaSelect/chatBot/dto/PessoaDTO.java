@@ -5,13 +5,15 @@ public class PessoaDTO {
 	private int id;
 	private String nome;
 	private String email;
-	private String senha;
+	private char[] senha;
 	private String tipo;
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
-
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -24,10 +26,10 @@ public class PessoaDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getSenha() {
+	public char[] getSenha() {
 		return senha;
 	}
-	public void setSenha(String senha) {
+	public void setSenha(char[] senha) {
 		this.senha = senha;
 	}
 	public String getTipo() {
