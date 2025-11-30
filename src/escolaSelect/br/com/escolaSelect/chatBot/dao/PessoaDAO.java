@@ -12,7 +12,7 @@ import escolaSelect.br.com.escolaSelect.chatBot.dto.PessoaDTO;
 
 public class PessoaDAO {
 
-	public boolean inserir(PessoaDTO ps) {
+	public boolean inserirCriarConta(PessoaDTO ps) {
 		String sql = "INSERT INTO pessoa (nome, email, senha, tipo) VALUES (?, ?, ?, ?)";
 
 		try (Connection conexao = new Conexao().conectarBD(); PreparedStatement stmt = conexao.prepareStatement(sql)) {
@@ -57,7 +57,47 @@ public class PessoaDAO {
 		return ps;
 	}
 
-	public boolean atualizar(PessoaDTO ps) {
+	public boolean fazerLogin(String email, String senha) {
+		String sql = "SELECT * FROM pessoa WHERE email = ? AND senha = ?";
+
+		boolean loginSucesso = false;
+
+		try (Connection conexao = new Conexao().conectarBD(); PreparedStatement stmt = conexao.prepareStatement(sql)) {
+			stmt.setString(1, email);
+			stmt.setString(2, senha);
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				loginSucesso = true;
+			}
+
+		} catch (SQLException e) {
+			alertaErro("Login ou senha incorretos!");
+			e.printStackTrace();
+		}
+		return loginSucesso;
+	}
+
+	public boolean verificarEmail(String email) {
+		String sql = "SELECT * FROM pessoa WHERE email = ?";
+		boolean emailCorreto = false;
+
+		try (Connection conexao = new Conexao().conectarBD(); PreparedStatement stmt = conexao.prepareStatement(sql)) {
+			stmt.setString(1, email);
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				emailCorreto = true;
+			}
+
+		} catch (SQLException e) {
+			alertaErro("Login ou senha incorretos!");
+			e.printStackTrace();
+		}
+		return emailCorreto;
+	}
+
+	public boolean atualizarConta(PessoaDTO ps) {
 		String sql = "UPDATE pessoa SET nome = ?, email = ?, senha = ?, tipo = ? WHERE id = ?";
 
 		try (Connection conexao = new Conexao().conectarBD(); PreparedStatement stmt = conexao.prepareStatement(sql)) {
@@ -77,7 +117,7 @@ public class PessoaDAO {
 		}
 	}
 
-	public boolean remover(int id) {
+	public boolean removerConta(int id) {
 		String sql = "DELETE FROM pessoa WHERE id = ?";
 
 		try (Connection conexao = new Conexao().conectarBD(); PreparedStatement stmt = conexao.prepareStatement(sql)) {

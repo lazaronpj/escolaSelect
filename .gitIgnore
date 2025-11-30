@@ -1,4 +1,4 @@
-# Resultados de compilação e empacotamento
+# Resultados de compilação e empacotação
 # Ignora todos os arquivos .class em qualquer lugar
 *.class
 
@@ -7,6 +7,30 @@ target/
 build/
 bin/
 out/
+dist/
+
+# Bibliotecas e dependências locais (NÃO IGNORAR lib/ se tem MySQL connector)
+# lib/                    # REMOVIDO - contém MySQL connector
+# libs/                   # REMOVIDO - pode ter dependências importantes
+vendor/
+# jars/                   # REMOVIDO - pode ter JARs importantes
+
+# Documentação gerada
+docs/
+javadoc/
+apidocs/
+
+# Scripts locais de desenvolvimento (NÃO IGNORAR scripts/ se tem SQL)
+# scripts/                # REMOVIDO - contém scripts SQL importantes
+# script/                 # REMOVIDO 
+
+# Pastas de configuração de IDEs
+.settings/
+.metadata/
+
+# Configurações do Git (importante para submodules ou pastas aninhadas)
+.git/
+*.gitignore
 
 # Arquivos de log
 *.log
@@ -30,26 +54,28 @@ pom.xml.releaseBackup
 
 # Configurações do Gradle
 .gradle/
-# Para ignorar o wrapper do gradle no caso de ser gerado pelo sistema operacional, mas geralmente é versionado
-# gradle-wrapper.jar
+gradle-app.setting
+build/
 
 # Configurações de IDEs (Eclipse, IntelliJ, VS Code, NetBeans)
 .idea/             # IntelliJ
 .project           # Eclipse
 .classpath         # Eclipse
-.settings/         # Eclipse
 .vscode/           # VS Code
 nbproject/         # NetBeans
 *.iml              # IntelliJ module files
+*.iws              # IntelliJ workspace files
 
 # Arquivos específicos do sistema operacional
 .DS_Store          # macOS
 Thumbs.db          # Windows
+ehthumbs.db
 
 # Variáveis de ambiente e segredos locais (muito importante!)
 .env
+*.local
 secret.properties
 config.local.properties
 
-# Diretório de recursos de teste
+# Diretório de recursos de teste (mantenha os arquivos, ignore apenas compilados)
 # src/test/resources/
